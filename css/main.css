@@ -468,6 +468,49 @@ h3 {
   text-decoration: none;
 }
 
+.hamburger {
+  width: 30px;
+  margin: 0 auto;
+  display: none;
+  color: #65e496;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 4px;
+  background-color: #65e496;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-line:nth-child(2) {
+  margin: 6px auto;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger.hamburger-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.hamburger-active .hamburger-line:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(40deg);
+  -ms-transform: translateY(10px) rotate(40deg);
+  -o-transform: translateY(10px) rotate(40deg);
+  transform: translateY(10px) rotate(40deg);
+}
+
+.hamburger.hamburger-active .hamburger-line:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(-40deg);
+  -ms-transform: translateY(-10px) rotate(-40deg);
+  -o-transform: translateY(-10px) rotate(-40deg);
+  transform: translateY(-10px) rotate(-40deg);
+}
+
 .block-text {
   flex-basis: calc(93% - 500px);
 }
@@ -1353,6 +1396,12 @@ h3 {
   width: 100%;
 }
 
+@media screen and (min-width:1500px) and (max-width:4000px){
+  .block-auther {
+   margin-top: 350px;
+  }
+}
+
 @media screen and (min-width: 36rem) {
   .container {
     max-width: 31.875rem;
@@ -1517,7 +1566,6 @@ h3 {
     flex-direction: column;
     padding: 47px 15px 20px 15px;
   }
-
   .header {
     display: block;
   }
@@ -1533,16 +1581,32 @@ h3 {
 
   .header-list {
     display: none;
-    display: inline-block;
   }
 
   .header-list__item {
-    display: none;
-    margin-bottom: 10px;
+    width: 100px;
   }
-
+  .header-list__item::hover{
+    border-bottom:none;
+  }
   .header-list__item.active {
     display: none;
+    border-bottom:none;
+  }
+  .header-list__item.not-active {
+    display: none;
+    border-bottom:none;
+  }
+  .header-list__item.actibe::hover{
+    width:100px;
+    border-bottom:1px solid red;
+  }
+  .hamburger {
+    display: inline-block;
+    /* text-align: left; */
+    width: 30px;
+    text-align: right;
+    margin-top: 20px;
   }
 }
 

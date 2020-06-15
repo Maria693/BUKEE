@@ -7,27 +7,10 @@
         <meta name="theme-color" content="#fff">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
-        <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
-        <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
-        <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
-        <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
-        <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/3e83a00890.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -37,15 +20,20 @@
                     <a href="#" class="header__logo"></a>
                     <ul class="header-list">
                         <li class="header-list__item active"><a href="" class="header-list__link">Home</a></li>  
-                        <li class="header-list__item"><a href="" class="header-list__link">About</a></li>
-                        <li class="header-list__item"><a href="" class="header-list__link">Contents</a></li>   
-                        <li class="header-list__item"><a href="" class="header-list__link">Books</a></li>
-                        <li class="header-list__item"><a href="" class="header-list__link">Education</a></li>    
-                        <li class="header-list__item"><a href="" class="header-list__link">Skills </a></li> 
-                        <li class="header-list__item"><a href="" class="header-list__link">Portfolio</a></li>    
-                        <li class="header-list__item"><a href="" class="header-list__link">Clients</a></li>  
-                        <li class="header-list__item"><a href="" class="header-list__link">Contact </a></li>
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">About</a></li>
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Contents</a></li>   
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Books</a></li>
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Education</a></li>    
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Skills </a></li> 
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Portfolio</a></li>    
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Clients</a></li>  
+                        <li class="header-list__item not-active"><a href="" class="header-list__link">Contact </a></li>
                    </ul>
+                   <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                  </div>
                 </div>
             </header>
             <div class="wrap">
@@ -228,7 +216,7 @@
         </div>
         <svg class="page-carousel__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1601 892"><g><g><path fill="#44444f" d="M0 0l802 61 799-61v789l-799 60L0 789z"/></g></g></svg>
     </div>
-    <div class="page">
+    <div class="page page-margin">
         <div class="wrap"> 
             <div class="block-auther block-auther_next">
                 <div class="block-ava">
@@ -353,11 +341,27 @@
         $("#nextContens").hide();
     });
         $(document).ready(function(){
-        $(".header__logo").click(function(){
-        $(".header-list__item").toggle();
+        $(".hamburger").click(function(){
+        $(".header-list__item").fadeIn();
         });
     });
-   
+
+
+    $(function(){
+	
+	$('.hamburger').on('click', function(){
+		$(this).toggleClass("hamburger-active");
+		$('.header-list').slideToggle(300, function(){
+			
+			if($(this).css('display') === 'none'){
+				$(this).removeAttr('style');
+		}
+		
+	});
+	
+ });
+	
+});
     </script>
     </body>
 </html> 
